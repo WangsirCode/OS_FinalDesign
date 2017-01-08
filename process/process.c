@@ -47,7 +47,7 @@ static void getSumInfo(int *processNum,unsigned long *num);
 /*用于将结果写进文件中*/
 static void writeToFile(unsigned long result);
 
-int main()
+int main(int argc,char *argv[])
 {
     /*共享内存相关变量*/
     void *shm = NULL;
@@ -91,7 +91,11 @@ int main()
   
     /*从文件中读取进程数和累加数*/
     getSumInfo(&processNum, &finalNum);
-    
+     
+   /* 自动测试时使用下面方式获取参数*/
+    /*sscanf(argv[1],"%d",&threadNum);*/
+    /*sscanf(argv[2],"%lu",&finalNum);    */
+   
     length = finalNum / processNum;
     info.start = 1;
     info.end = info.start + length;

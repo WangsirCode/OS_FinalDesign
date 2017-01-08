@@ -26,7 +26,7 @@ static void writeToFile(unsigned long result);
 
 void increse_num(SumInfo* info);
 
-int main()
+int main(int argc,char *argv[])
 {
     unsigned long finalNum;
     int i;
@@ -38,6 +38,9 @@ int main()
     /*获取线程数和累加终值*/
     getSumInfo(&threadNum, &finalNum);
     
+   /* 自动测试时使用下面方式获取参数*/
+    /*sscanf(argv[1],"%d",&threadNum);*/
+    /*sscanf(argv[2],"%lu",&finalNum);    */
     length = finalNum / threadNum;
     end = start + length;
     
